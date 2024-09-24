@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	_ "github.com/mehulambastha/fschecker-cli/internal"
+	"github.com/mehulambastha/fschecker-cli/internal"
 	"github.com/spf13/cobra"
 )
 
@@ -11,7 +11,8 @@ var watchCmd = &cobra.Command{
 	Use:   "watch",
 	Short: "Watch a directory for file changes",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("WATCHING YAY!")
+		fmt.Println("Starting watch for: ", args[0])
+		internal.WatchDir(args[0])
 	},
 }
 
